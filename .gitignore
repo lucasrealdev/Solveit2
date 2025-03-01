@@ -1,0 +1,42 @@
+# === Backend ===
+/Solveit2-backend/dist
+/Solveit2-backend/node_modules
+/Solveit2-backend/logs
+/Solveit2-backend/*.log
+/Solveit2-backend/npm-debug.log*
+/Solveit2-backend/pnpm-debug.log*
+/Solveit2-backend/lerna-debug.log*
+/Solveit2-backend/coverage
+/Solveit2-backend/.nyc_output
+/Solveit2-backend/.env
+/Solveit2-backend/.env.test
+/Solveit2-backend/.env*.local
+/Solveit2-backend/docker.env
+/Solveit2-backend/keys
+
+# === Frontend ===
+/Solveit2-frontend/.expo
+/Solveit2-frontend/.expo-shared
+/Solveit2-frontend/node_modules
+/Solveit2-frontend/coverage
+/Solveit2-frontend/.env
+/Solveit2-frontend/.env.test
+/Solveit2-frontend/.env*.local
+
+# === Comum ===
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+*.pem
+*.key
+*.crt
