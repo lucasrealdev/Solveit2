@@ -41,8 +41,8 @@ async function bootstrap() {
   );
 
   const swaggerConfig = new DocumentBuilder()
-    .setTitle('Solveit2 API')
-    .setDescription('Esta API fornece suporte ao aplicativo SolveIt, uma plataforma colaborativa onde usuários podem compartilhar problemas reais e buscar soluções inovadoras em conjunto. O backend foi desenvolvido com NestJS, utilizando TypeScript, Fastify, JWT para autenticação, e integrações com Postgresql e Oauth2.0. A documentação a seguir descreve os endpoints disponíveis e seus respectivos usos.')
+    .setTitle('NestJS Authentication API')
+    .setDescription('An OAuth2.0 authentication API made with NestJS')
     .setVersion('0.0.1')
     .addBearerAuth(
       {
@@ -53,7 +53,7 @@ async function bootstrap() {
       },
       'access-token',
     )
-    .addTag('Solveit API')
+    .addTag('Authentication API')
     .build();
   const document = SwaggerModule.createDocument(app, swaggerConfig);
   SwaggerModule.setup('api/docs', app, document);
