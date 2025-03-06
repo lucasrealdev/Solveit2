@@ -2,7 +2,6 @@ import { MikroOrmModule } from '@mikro-orm/nestjs';
 import { CacheModule } from '@nestjs/cache-manager';
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { APP_GUARD } from '@nestjs/core';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { CommonModule } from './common/common.module';
@@ -41,6 +40,7 @@ import { UsersModule } from './users/users.module';
     UsersModule,
     JwtModule,
     MailerModule,
+    AuthModule,
   ],
   providers: [
     AppService
