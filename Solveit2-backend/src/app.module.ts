@@ -2,8 +2,10 @@ import { MikroOrmModule } from '@mikro-orm/nestjs';
 import { CacheModule } from '@nestjs/cache-manager';
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { APP_GUARD } from '@nestjs/core';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
+import { AuthGuard } from './auth/guards/auth.guard';
 import { CommonModule } from './common/common.module';
 import { config } from './config';
 import { CacheConfig } from './config/cache.config';
@@ -13,6 +15,7 @@ import { ThrottlerConfig } from './config/throttler.config';
 import { ThrottlerModule } from '@nestjs/throttler';
 import { JwtModule } from './jwt/jwt.module';
 import { MailerModule } from './mailer/mailer.module';
+import { Oauth2Module } from './oauth2/oauth2.module';
 import { UsersModule } from './users/users.module';
 
 @Module({
@@ -38,12 +41,17 @@ import { UsersModule } from './users/users.module';
     }),
     CommonModule,
     UsersModule,
+    AuthModule,
     JwtModule,
     MailerModule,
-    AuthModule,
+    Oauth2Module,
   ],
   providers: [
-    AppService
+    AppService,
+    {
+      provide: APP_GUARD,
+      useClass: AuthGuard,
+    },
   ],
 })
 export class AppModule { }

@@ -22,6 +22,11 @@ export class CommonService {
     this.loggerService = new Logger(CommonService.name);
   }
 
+  /**
+   * Validate Entity
+   *
+   * Validates an entities with the class-validator library
+   */
   public async validateEntity(entity: Dictionary): Promise<void> {
     const errors = await validate(entity);
     const messages: string[] = [];
@@ -35,6 +40,11 @@ export class CommonService {
     }
   }
 
+  /**
+   * Check Entity Existence
+   *
+   * Checks if a findOne query didn't return null or undefined
+   */
   public checkEntityExistence<T extends Dictionary>(
     entity: T | null | undefined,
     name: string,
@@ -44,6 +54,11 @@ export class CommonService {
     }
   }
 
+  /**
+   * Save Entity
+   *
+   * Validates, saves and flushes entities into the DB
+   */
   public async saveEntity<T extends Dictionary>(
     entity: T,
     isNew = false,
@@ -57,10 +72,20 @@ export class CommonService {
     await this.throwDuplicateError(this.entityManager.flush());
   }
 
+  /**
+   * Remove Entity
+   *
+   * Removes an entities from the DB.
+   */
   public async removeEntity<T extends Dictionary>(entity: T): Promise<void> {
     await this.throwInternalError(this.entityManager.removeAndFlush(entity));
   }
 
+   /**
+   * Remove Entities
+   *
+   * Remove entities from the DB. 
+   */
   public async removeEntities<T extends Dictionary>(entities: T[]): Promise<void> {
     if (entities.length === 0) return;
 
@@ -69,6 +94,12 @@ export class CommonService {
     );
   }
 
+  /**
+   * Throw Duplicate Error
+   *
+   * Checks is an error is of the code 23505, PostgreSQL's duplicate value error,
+   * and throws a conflict exception
+   */
   public async throwDuplicateError<T>(promise: Promise<T>, message?: string) {
     try {
       return await promise;
@@ -83,6 +114,11 @@ export class CommonService {
     }
   }
 
+  /**
+   * Throw Internal Error
+   *
+   * Function to abstract throwing internal server exception
+   */
   public async throwInternalError<T>(promise: Promise<T>): Promise<T> {
     try {
       return await promise;
@@ -92,6 +128,11 @@ export class CommonService {
     }
   }
 
+  /**
+   * Throw Unauthorized
+   *
+   * Function to abstract throwing unauthorized exceptionm
+   */
   public async throwUnauthorizedError<T>(promise: Promise<T>): Promise<T> {
     try {
       return await promise;
@@ -101,6 +142,11 @@ export class CommonService {
     }
   }
 
+  /**
+   * Format Name
+   *
+   * Takes a string trims it and capitalizes every word
+   */
   public formatName(title: string): string {
     return title
       .trim()
@@ -109,6 +155,11 @@ export class CommonService {
       .replace(/\w\S*/g, (w) => w.replace(/^\w/, (l) => l.toUpperCase()));
   }
 
+  /**
+   * Generate Point Slug
+   *
+   * Takes a string and generates a slug with dtos as word separators
+   */
   public generatePointSlug(str: string): string {
     return slugify(str, { lower: true, replacement: '.', remove: /['_\.\-]/g });
   }
