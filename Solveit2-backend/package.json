@@ -17,7 +17,12 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "schema:create": "npx mikro-orm schema:create --run",
+    "schema:update": "npx mikro-orm schema:update --run",
+    "migrate:create": "npx mikro-orm migration:create",
+    "migrate:up": "npx mikro-orm migration:up",
+    "migrate:down": "npx mikro-orm migration:down"
   },
   "dependencies": {
     "@fastify/cookie": "^11.0.2",
