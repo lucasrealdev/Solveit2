@@ -1,0 +1,51 @@
+{
+  "expo": {
+    "name": "solveit2",
+    "slug": "solveit2",
+    "version": "1.0.0",
+    "scheme": "solveit2",
+    "web": {
+      "output": "static",
+      "favicon": "./src/assets/icon-transparent.png",
+      "bundler": "metro"
+    },
+    "experiments": {
+      "tsconfigPaths": true
+    },
+    "plugins": [
+      "expo-router"
+    ],
+    "orientation": "portrait",
+    "icon": "./src/assets/icon-transparent.png",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./src/assets/splash.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#000"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "bundleIdentifier": "com.planob.solveit",
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "O aplicativo requer acesso à câmera para tirar fotos.",
+        "NSPhotoLibraryUsageDescription": "O aplicativo requer acesso à galeria para selecionar imagens.",
+        "NSPhotoLibraryAddUsageDescription": "O aplicativo requer permissão para salvar imagens na galeria."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./src/assets/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      },
+      "permissions": [
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE",
+        "CAMERA"
+      ],
+      "package": "com.planob.solveit"
+    }
+  }
+}

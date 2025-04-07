@@ -18,6 +18,7 @@
 /Solveit2-frontend/.expo
 /Solveit2-frontend/.expo-shared
 /Solveit2-frontend/node_modules
+/Solveit2-frontend/dist
 /Solveit2-frontend/coverage
 /Solveit2-frontend/.env
 /Solveit2-frontend/.env.test
@@ -40,3 +41,14 @@
 *.pem
 *.key
 *.crt
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+
+# macOS
+.DS_Store
+# Temporary files created by Metro to check the health of the file watcher
+.metro-health-check*
