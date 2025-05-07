@@ -1,0 +1,3 @@
+type IconNames = 'home' | 'games' | 'friends' | 'configs' | 'chat' | 'close' | 'danger' | 'exit' | 'notification' | 'rightArrow' | 'more' | 'threeDots' | 'team' | 'moon' | 'graduation' | 'gift' | 'comments' | 'send' | 'likes' | 'share' | 'favorite' | 'happyFace' | 'search' | 'user' | 'upload' | 'sendButton' | 'info' | 'star' | 'downArrow' | 'question' | 'next' | 'previous' | 'help' | 'email' | 'padlock' | 'closeEye' | 'openEye' | 'createPost' | 'dump' | 'mapPoint' | 'attention' | 'group' | 'hearth' | 'settings' | 'upgrade' | 'exit' | 'correct' | 'filter' | 'profile';
+
+export default IconNames;
